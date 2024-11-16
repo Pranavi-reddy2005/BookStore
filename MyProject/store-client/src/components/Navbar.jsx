@@ -30,10 +30,10 @@ const Navbar = () => {
         <div className='flex items-center'>
             <img 
             className='h-10 me-4'
-            src='https://png.pngtree.com/png-clipart/20200710/original/pngtree-books-logo-png-image_4135424.jpg ' alt='logo' />
+            src='https://w7.pngwing.com/pngs/659/864/png-transparent-logo-book-cartoon-books-cartoon-character-supplies-orange-thumbnail.png' alt='logo' />
             <h1 className='text-2xl font-semibold'>BookHeaven</h1>
         </div>
-        <div className='nav-links-bookheaven'>
+        <div className='nav-links-bookheaven flex items-center gap-4'>
           <div className='flex gap-4'>
             {links.map((items, i) => (
               <div
@@ -45,10 +45,10 @@ const Navbar = () => {
             ))}
           </div>
           <div className='flex gap-4'>
-          <button className='px-2 py-1 border border-blue-500 rounded'>
+          <button className='px-2 py-1 border border-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duration-300'>
             LogIn
           </button>
-          <button className='px-2 py-1  bg-blue-500 rounded'>SignUp</button>
+          <button className='px-2 py-1  bg-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duration-300'>SignUp</button>
         </div>
       </div>
     </div>
