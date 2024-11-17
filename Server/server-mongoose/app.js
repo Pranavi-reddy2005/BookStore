@@ -1,0 +1,10 @@
+const express = require('express')
+// const cors = require('cors')
+const app = express()
+const Port = 1000
+// app.use(cors())
+const conn = require('./conn/conn')
+app.use(express.json())
+const User=require("./routes/UserRoute")
+app.use('/users', User)
+app.listen(Port, (() => console.log('listening in:' + Port)))
