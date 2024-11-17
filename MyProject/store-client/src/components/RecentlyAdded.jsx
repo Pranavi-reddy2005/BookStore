@@ -8,7 +8,7 @@ const RecentlyAdded = () => {
         const fetch = async () => {
             const response = await axios.get(
                 " "
-            )
+            ) 
         }
         fetch()
     }, [])
