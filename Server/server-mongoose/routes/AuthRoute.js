@@ -1,9 +1,4 @@
 const jwt=require("jsonwebtoken");
-// const express = require('express')
-// const router = express.Router();
-// const Users = require('../models/UserModels')
-// const bcrypt = require('bcrypt')
-// const jwt = require('jsonwebtoken')
 const authenticateToken=(req,res,next)=>{
     const authHeader=req.headers["authorization"];
     const token=authHeader &&authHeader.split(" ")[1];
