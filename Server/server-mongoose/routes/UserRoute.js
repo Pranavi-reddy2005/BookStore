@@ -1,7 +1,8 @@
 const router=require("express").Router();
 const User=require('../models/UserModels')
 const bcrypt=require("bcryptjs")
-// const bcrypt=require('bcrypt')
+const jwt=require('jsonwebtoken')
+const {authenticateToken}=require('./AuthRoute')
 // Sign Up
 router.post("/sign-up",async(req,res)=>{
     try{
@@ -53,7 +54,13 @@ router.post("/sign-in",async(req,res)=>{
         }
         await bcrypt.compare(password,existingUser.password,(err,data)=>{
             if(data){
-                res.status(200).json({message:"Sign-in Successs"});
+                const authClaims=[
+                   { name:existingUser.username},{
+                    role:existingUser.role
+                   },
+                ];
+                const token=jwt.sign({authClaims},"bookStore123",{expiresIn:"30d",})
+                res.status(200).json({id:existingUser._id,role:existingUser.role,token:token});
 
             }
             else{
@@ -68,5 +75,33 @@ router.post("/sign-in",async(req,res)=>{
 
         }
        
+        });
+        //get user information
+        router.get("/information",authenticateToken,async(req,res)=>{
+            try{
+                const {id}=req.headers;
+                    const data=await User.findById(id).select('-password');
+                    return res.status(200).json(data);
+                
+
+            }
+            catch(error){
+                return res.status(500).json({message:"Internal Server Error"});
+
+            }
+        });
+        router.put("/update-adress",authenticateToken,async(req,res)=>{
+            try{
+                const {id}=req.headers;
+                const{adress}=req.body;
+                await User.findByIdAndUpdate(id,{adress:adress});
+                return res.status(200).json({message:"Adtress updated successfully"});
+
+            }
+            catch(error){
+                return res.status(500).json({message:"Internal Server Error"});
+
+            }
+
         });
 module.exports=router;
