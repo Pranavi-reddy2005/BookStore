@@ -4,10 +4,11 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import LogIn from './pages/LogIn'
-import AllBooks from './pages/AllBooks'
+import AllBooks from './pages/allBooks'
 import SignUp from './pages/SignUp'
 import Cart from './pages/Cart'
 import Profile from './pages/Profile'
+import ViewBookDetails from './components/ViewBookDetails'
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path='/profile' element={<Profile />} />
           <Route path='/LogIn' element={<LogIn />} />
           <Route path='/SignUp' element={<SignUp />} />
+          <Route path='view-book-details/:id' element={<ViewBookDetails />} />
         </Routes>
         <Footer />
       </BrowserRouter>

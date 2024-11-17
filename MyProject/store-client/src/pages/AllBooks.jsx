@@ -11,6 +11,7 @@ const allBooks = () => {
             const response = await axios.get(
                 " "
             )
+            setData(response.data.data)
         }
         fetch()
     }, [])
