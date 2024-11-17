@@ -61,18 +61,27 @@ const Navbar = () => {
           </Link>
           </div>
         
-        <button className='text-white text-2xl hover:text-zinc-400' onClick={() =>setMobileNav === 'hidden' ? setMobileNav('block'):setMobileNav('hidden')}>
+        <button className='text-white text-2xl hover:text-zinc-400' onClick={() => 
+          MobileNav === 'hidden'
+           ? setMobileNav('block')
+           :setMobileNav('hidden')
+           }>
         <FaGripLines />
         </button>
       </div>
     </nav>
     <div 
-    className={`${MobileNav}bg-zinc-800 h-screen absolute top-0 left-0 w-full z-40 flex flex-col items-center justify-center`}>
+    className={`${MobileNav} bg-zinc-800 h-screen absolute top-0 left-0 w-full z-40 flex flex-col items-center justify-center`}>
     {links.map((items, i) => (
             <Link
               to={items.link}
-              className={`${MobileNav}text-black text-4xl mb-8 font-semibold hover:text-blue-500 tranition-all duration-300`}
+              className={`${MobileNav} text-white text-4xl mb-8 font-semibold hover:text-blue-500 tranition-all duration-300`}
               key={i}
+              onClick={() =>  
+              MobileNav === 'hidden'
+           ? setMobileNav('block')
+           :setMobileNav('hidden')
+           }
             >
               {items.title}{' '}
             </Link>
@@ -80,7 +89,7 @@ const Navbar = () => {
            
           <Link
             to='/LogIn'
-            className={`${MobileNav} px-8 mb-8 text-3xl font-semibold py-2 border border-blue-500 rounded text-white hover:bg-white-800 hover:text-zinc-800 transition-all duration-300`}>
+            className={`${MobileNav} px-8 mb-8 text-3xl font-semibold py-2 border border-blue-500 rounded text-white hover:bg-white-800 hover:text-blue-800 transition-all duration-300`}>
             LogIn
           </Link>
           <Link
