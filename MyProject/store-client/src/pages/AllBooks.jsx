@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Loader2 } from 'lucide-react'
@@ -35,14 +35,5 @@ const allBooks = () => {
 }
 
 export default allBooks
-=======
-import React from 'react'
 
-const AllBooks = () => {
-  return (
-    <div>AllBooks</div>
-  )
-}
 
-export default AllBooks
->>>>>>> 01279ba012121f8b0cb37650d67b65aa9e8283f0
