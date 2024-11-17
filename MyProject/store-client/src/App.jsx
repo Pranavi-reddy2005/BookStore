@@ -2,7 +2,7 @@ import React from 'react'
 import Home from './pages/Home'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import LogIn from './pages/LogIn'
 import AllBooks from './pages/allBooks'
 import SignUp from './pages/SignUp'
@@ -13,7 +13,7 @@ import ViewBookDetails from './components/ViewBookDetails'
 const App = () => {
   return (
     <div>
-      <BrowserRouter>
+      
         <Navbar />
 
         <Routes>
@@ -26,7 +26,7 @@ const App = () => {
           <Route path='view-book-details/:id' element={<ViewBookDetails />} />
         </Routes>
         <Footer />
-      </BrowserRouter>
+      
 
     </div>
   )
