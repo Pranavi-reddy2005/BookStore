@@ -15,15 +15,15 @@ const ViewDataDetails = () => {
     console.log(isLoggedIn)
     console.log(role)
     useEffect(() => {
-        const fetch = async (req,res) => {
+        const fetch = async () => {
             const response = await axios.get(
                 `http://localhost:1000/books/get-book-by-id/${id}`
-            )
+            );
             // console.log(response)
-            setData(response.data.data)
-        }
-        fetch()
-    }, [])
+            setData(response.data.data);
+        };
+        fetch();
+    }, []);
     const headers = {
         id: localStorage.getItem('id'),
         authorization: `Bearer ${localStorage.getItem('token')}`,
