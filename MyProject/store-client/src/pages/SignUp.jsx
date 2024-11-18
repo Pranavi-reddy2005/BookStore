@@ -19,7 +19,7 @@ const SignUp = () => {
         alert("All fields are required")
       }
       else {
-        const response = await axios.post("http://localhost:1000/api/vi/sign-up", Values)
+        const response = await axios.post("http://localhost:1000/users/sign-up", Values)
         console.log(response.data)
         alert(response.data.message)
         navigate('/LogIn')

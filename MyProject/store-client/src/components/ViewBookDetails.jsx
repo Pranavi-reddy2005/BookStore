@@ -1,17 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Loader2, IndianRupee } from 'lucide-react'
 import { GrLanguage } from "react-icons/gr";
 import { useParams } from 'react-router-dom';
-const ViewBookDetails = () => {
+const ViewDataDetails = () => {
     const { id } = useParams()
     const [Data, setData] = useState();
     useEffect(()=> {
         const fetch = async () => {
             const response = await axios.get(
-                //"http "
+                "http://localhost:1000/books/get-book-by-id/${id}"
             )
-            
+            // console.log(response)
             setData(response.data.data)
         }
         fetch()
@@ -50,4 +50,4 @@ const ViewBookDetails = () => {
 }
 
 
-export default ViewBookDetails
+export default ViewDataDetails

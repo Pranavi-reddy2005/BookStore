@@ -20,7 +20,7 @@ const LogIn = () => {
         alert("All fields are required")
       }
       else {
-        const response = await axios.post("http://localhost:1000/api/vi/sign-in", Values)
+        const response = await axios.post("http://localhost:1000/users/sign-in", Values)
         // console.log(response.data.id)
         dispatch(authActions.login())
         dispatch(authActions.changeRole(response.data.role))

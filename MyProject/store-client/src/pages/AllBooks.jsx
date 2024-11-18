@@ -9,7 +9,7 @@ const allBooks = () => {
     useEffect(()=> {
         const fetch = async () => {
             const response = await axios.get(
-                " "
+                "http://localhost:1000/books/get-all-books"
             )
             setData(response.data.data)
         }
@@ -17,14 +17,14 @@ const allBooks = () => {
     }, [])
 
   return (
-    <div className='bg-zinc-900 px-12 py-8 h-auto'> 
+    <div className='bg-zinc-900 px-12 py-8 h-screen'> 
     <h4 className='text-3xl text-yellow-100'>All books</h4>
     {!Data &&(
         <div className='w-screen h-[90vh] flex flex-col justify-center items-center'>
         <Loader2 className='text-purple-500 h-14 w-14 animate-spin' />
     </div>
     )}
-    <div className='my-8 grid grid-cols-1 sm:grid-cols-3 md:grind-cols-4 gap-4'> 
+    <div className='my-8 grid grid-cols-1 sm:grid-cols-3 md:grind-cols-4 gap-8'> 
         {Data &&
         Data.map((items, i)=>(
             <div key={i}>
