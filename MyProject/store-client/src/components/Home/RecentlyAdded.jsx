@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-// import BookCard from '../Profile/BookCard';
+import BookCard from '../BookCard'
 import { Loader2 } from 'lucide-react'
-import BookCard from '../BookCard';
+
 const RecentlyAdded = () => {
     const [Data, setData] = useState();
     useEffect(()=> {
@@ -10,6 +10,7 @@ const RecentlyAdded = () => {
             const response = await axios.get(
                 "http://localhost:1000/books/get-recent-books "
             ) 
+            setData(response.data.data)
         }
         fetch()
     }, [])
