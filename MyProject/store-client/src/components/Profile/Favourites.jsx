@@ -26,7 +26,7 @@ fetch();
         No Favourite Books <Star className='h-[20vh] my-8' />
       </div>
     )}
-     <div className='grid grid-cols -4 gap-4'>
+     <div className='grid grid-cols-4 gap-4'>
       
       {FavouriteBooks && FavouriteBooks.map((items,i) =>(
         <div key={i}>
