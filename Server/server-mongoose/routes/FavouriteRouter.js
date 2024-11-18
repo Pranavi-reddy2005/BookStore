@@ -19,7 +19,7 @@ router.put("/add-favourite",authenticateToken,async(req,res)=>{
         return res.status(500).json({message:"Internal Server error"})
     }
 });
-router.delete("/delete-favourite",authenticateToken,async(req,res)=>{
+router.put("/remove-favourite",authenticateToken,async(req,res)=>{
     try{
         const{bookid,id}=req.headers;
         const userData=await User.findById(id);
