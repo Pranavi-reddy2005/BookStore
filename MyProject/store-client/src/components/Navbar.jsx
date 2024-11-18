@@ -46,8 +46,8 @@ const Navbar = () => {
         <div className='hidden md:flex gap-4'>
           {links.map((items, i) => (
            <div className='flex items-center'>
-           {items.title === 'Profile' ?  <Link
-              to={items.link}
+           {items.title === 'Profile' ?  
+           <Link to={items.link}
               className='px-4 py-1 border border-blue-500 rounded hover:bg-white hover:text-zinc-800 transition-all duration-300'
               key={i}
             >
