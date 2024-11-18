@@ -15,7 +15,7 @@ const Profile = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        //" http: "
+        " http://localhost:1000/users/information", 
         { headers }
       )
       setProfile(response.data)
@@ -23,13 +23,13 @@ const Profile = () => {
     fetch()
   }, [])
   return (
-    <div className='bg-zinc-900 px-2 md:px-12 flex flex-col md:flex-row h-screen py-8 gap-4 text-white'>
+    <div className='bg-zinc-900 px-2 md:px-12 flex flex-col md:flex-row py-8 gap-4 text-white'>
       {!Profile && (
         <div className='w-full h-[100%] flex items-center justify-center'>
           <Loader2 />
         </div>
       )}
-      <div className='w-full md:w-1/6'>
+      <div className='w-full md:w-1/6 h-screen'>
         <Sidebar data={Profile}/>
       </div>
       <div className='w-full md:w-5/6'>
