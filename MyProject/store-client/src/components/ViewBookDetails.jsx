@@ -15,9 +15,9 @@ const ViewDataDetails = () => {
     console.log(isLoggedIn)
     console.log(role)
     useEffect(() => {
-        const fetch = async () => {
+        const fetch = async (req,res) => {
             const response = await axios.get(
-                "http://localhost:1000/books/get-book-by-id/${id}"
+                `http://localhost:1000/books/get-book-by-id/${id}`
             )
             // console.log(response)
             setData(response.data.data)
@@ -28,19 +28,19 @@ const ViewDataDetails = () => {
         id: localStorage.getItem('id'),
         authorization: `Bearer ${localStorage.getItem('token')}`,
         bookid: id,
-    }
+    };
     const handleFavourite = async () => {
         const response = await axios.put('http://localhost:1000/books/add-favourite', {}, { headers })
         alert(response.data.message)
-    }
+    };
     const handleCart = async () => {
         const response = await axios.put('http://localhost:1000/books/add-to-cart', {}, { headers })
         alert(response.data.message)
-    }
+    };
     return (
         <>
             {Data && (
-                <div className='px-4 md:px-12 py-8 hg-zinc-900 flex flex-col lg:flex-row gap-8 items-start'>
+                <div className='px-4 md:px-12 py-8 bg-zinc-900 flex flex-col lg:flex-row gap-8 items-start'>
                     <div className='w-full lg:w-3/6'>
                         {" "}
                         <div className='flex flex-col lg:flex-row justify-around bg-zinc-800 p-12 rounded'>
@@ -85,7 +85,8 @@ const ViewDataDetails = () => {
                             <GrLanguage className='me-3' /> {Data.language}
                         </p>
                         <p className='mt-4 text-zinc-100 text-3xl font-semibold'>
-                            Price: <IndianRupee /> {Data.price}{" "}
+                        
+                            Price: <IndianRupee />{Data.price}{" "}
                         </p>
                     </div>
                 </div>
